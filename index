@@ -1,0 +1,36 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Factorial Calculator");
+
+        // Get user input for the number
+        Console.Write("Enter a non-negative integer: ");
+        if (int.TryParse(Console.ReadLine(), out int number) && number >= 0)
+        {
+            // Calculate the factorial
+            int factorial = CalculateFactorial(number);
+
+            // Display the result
+            Console.WriteLine($"The factorial of {number} is: {factorial}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a non-negative integer.");
+        }
+    }
+
+    static int CalculateFactorial(int n)
+    {
+        if (n == 0 || n == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return n * CalculateFactorial(n - 1);
+        }
+    }
+}
